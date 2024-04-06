@@ -3,7 +3,7 @@ name: Deployment in an EC2 Machine
 on:
   push:
     branches:
-      - main
+      - github_actions
 jobs:
   deploy:
     runs-on: ubuntu-latest
