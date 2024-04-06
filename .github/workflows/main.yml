@@ -27,8 +27,8 @@ jobs:
             cat /etc /os-release
             sudo apt update
             sudo apt install nginx -y
-            sudo mkdir /var/www/html
-            sudo chown -R ${{ secrets.EC2_SSH_KEY }} /var/www/html
+            sudo mkdir -p /var/www/html
+            sudo chown -R ${{ secrets.EC2_USER }} /var/www/html
             sudo chmod -R 755 /var/www/html
 
       - name: Sending Files Over SCP
