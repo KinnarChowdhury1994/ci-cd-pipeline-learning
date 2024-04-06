@@ -25,3 +25,15 @@ jobs:
             whoami
             ls -l
             cat /etc /os-release
+            sudo apt update
+            sudo apt install nginx -y
+
+      - name: Execute SSH into EC2
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USER }}
+          key: ${{ secrets.EC2_SSH_KEY }}
+          port: 22
+          source: ./
+          target: /var/www/html/
