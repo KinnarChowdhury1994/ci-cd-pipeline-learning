@@ -27,6 +27,8 @@ jobs:
             cat /etc /os-release
             sudo apt update
             sudo apt install nginx -y
+            sudo chown -R ${{ secrets.EC2_SSH_KEY }} /var/www/html
+            sudo chmod -R 755 /var/www/html
 
       - name: Execute SSH into EC2
         uses: appleboy/scp-action@v0.1.7
