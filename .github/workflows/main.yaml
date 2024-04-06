@@ -1,0 +1,15 @@
+name: Deployment in an EC2 Machine
+
+on:
+  push:
+    branches:
+      - github-actions
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checking Out Code
+        uses: actions/checkout@v4
+        
+      - name: Looking into the Runner Machine
+        run: ls && cat /etc/os-release
